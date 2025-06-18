@@ -19,15 +19,13 @@ autoinstall:
 
   late-commands:
     - echo "_______Comecei os comandos_______"
-
-
-    
-    - curtin in-target -- lsblk
-    - curtin in-target -- ls media/
-    - curtin in-target -- ls media/administrator
-    - curtin in-target -- ls media/administrator/POSINSTALL
-    - curtin in-target -- /bin/bash /root/posinstall3.sh
-
-
+    - lsblk
+    - mkdir -p /mnt/pendrive
+    - ls -la /mnt/
+    - mount /dev/sdb1 /mnt/pendrive
+    - mount    
+    - cp /mnt/pendrive/posinstall3.sh /target/root/posinstall3.sh
+    - chmod +x /target/root/posinstall3.sh    
+    - curtin in-target -- /root/posinstall3.sh
     - echo "_______Terminei os comandos_______"
   shutdown: reboot    
