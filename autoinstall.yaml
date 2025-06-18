@@ -3,11 +3,10 @@
 autoinstall:
   version: 1
   interactive-sections:
-    - network
-  
+    - storage
   identity: 
     hostname: administrator
-    username: kiosk
+    username: administrator
     password: "$6$P4EWCxO5uckDy.Do$qCdcAoqC1EsFRVKZKVhbhzPP8Vg7YaempLDemNJD8hR4ucu3Q5tLgW5QtZ2auCIXIfTalJ8eDs2xiT1tzJMpX1"
   locale: en_US.UTF-8
   keyboard:
@@ -21,6 +20,6 @@ autoinstall:
       preserve: false
 
   late-comands:
-    - curtin in-target -- /bin/bash /home/ubuntu/Desktop/posinstall3.sh
+    - curtin in-target -- /bin/bash /media/administrator/POSINSTALL/posintall3.sh
     
   shutdown: reboot    
