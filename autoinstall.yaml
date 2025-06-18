@@ -2,8 +2,6 @@
 
 autoinstall:
   version: 1
-  interactive-sections:
-    - storage
   identity: 
     hostname: administrator
     username: administrator
@@ -20,6 +18,10 @@ autoinstall:
       preserve: false
 
   late-comands:
-    - curtin in-target -- /bin/bash /media/administrator/POSINSTALL/posintall3.sh
-    
+    - mkdir -p /mnt/pendrive
+    - mount /dev/sda /mnt/pendrive
+    - cp /mnt/pendrive/posinstall3.sh /target/root/posinstall3.sh
+    - chmod +x /target/root/posinstall3.sh
+    - curtin in-target -- /root/posinstall3.sh
+
   shutdown: reboot    
