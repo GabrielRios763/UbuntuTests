@@ -19,7 +19,7 @@ autoinstall:
 
   late-comands:
     - mkdir -p /mnt/pendrive
-    - mount /dev/sda /mnt/pendrive
+    - mount /dev/sda1 /mnt/pendrive
     - cp /mnt/pendrive/posinstall3.sh /target/root/posinstall3.sh
     - chmod +x /target/root/posinstall3.sh
     - curtin in-target -- /root/posinstall3.sh
