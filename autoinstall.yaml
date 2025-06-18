@@ -2,6 +2,8 @@
 
 autoinstall:
   version: 1
+  interactive-sections:
+    - storage
   identity: 
     hostname: administrator
     username: administrator
@@ -18,10 +20,8 @@ autoinstall:
       preserve: false
 
   late-comands:
-    - mkdir -p /mnt/pendrive
-    - mount /dev/sdb1 /mnt/pendrive
-    - cp /mnt/pendrive/posinstall3.sh /target/root/posinstall3.sh
-    - chmod +x /target/root/posinstall3.sh
-    - curtin in-target -- /root/posinstall3.sh
+    - curtin in-target -- apt-get update
+    - curtin in-target -- apt install git -y
+    - curtin in-target -- git clone https://github.com/GabrielRios763/UbuntuTests.git
 
   shutdown: reboot    
