@@ -2,13 +2,12 @@
 
 autoinstall:
   version: 1
-  identity: 
-    hostname: administrator
-    username: administrator
-    password: "$6$P4EWCxO5uckDy.Do$qCdcAoqC1EsFRVKZKVhbhzPP8Vg7YaempLDemNJD8hR4ucu3Q5tLgW5QtZ2auCIXIfTalJ8eDs2xiT1tzJMpX1"
+  interactive-sections:
+    - identity
   locale: en_US.UTF-8
   keyboard:
     layout: br
+    variant: abnt2
   timezone: "America/Sao_Paulo"
   storage:
     layout:
@@ -18,11 +17,15 @@ autoinstall:
       preserve: false
 
   late-commands:
-    - echo "===============Comecei os comandos============="
-    - mkdir -p /mnt/pendrive
-    - mount /dev/sdb1 /mnt/pendrive
-    - cp /mnt/pendrive/posinstall3.sh /target/root/posinstall3.sh
-    - chmod +x /target/root/posinstall3.sh    
-    - curtin in-target -- /root/posinstall3.sh
-    - echo "===============Terminei os comandos============"
+    - echo "_______Comecei os comandos_______"
+
+    - curtin in-target -- lsblk
+    - curtin in-target -- mount
+    - curtin in-target -- ls -la /media/
+    - curtin in-target -- ls -la /media/administrator
+    - curtin in-target -- ls -la /media/administrator/POSINSTALL
+    - curtin in-target -- /bin/bash /root/posinstall3.sh
+
+
+    - echo "_______Terminei os comandos_______"
   shutdown: reboot    
