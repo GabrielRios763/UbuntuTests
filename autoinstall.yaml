@@ -18,14 +18,11 @@ autoinstall:
       preserve: false
 
   late-commands:
-    - echo "_______Comecei os comandos_______"
-    - lsblk
+    - echo "===============Comecei os comandos============="
     - mkdir -p /mnt/pendrive
-    - ls -la /mnt/
     - mount /dev/sdb1 /mnt/pendrive
-    - mount    
     - cp /mnt/pendrive/posinstall3.sh /target/root/posinstall3.sh
     - chmod +x /target/root/posinstall3.sh    
     - curtin in-target -- /root/posinstall3.sh
-    - echo "_______Terminei os comandos_______"
+    - echo "===============Terminei os comandos============"
   shutdown: reboot    
