@@ -6,7 +6,10 @@ autoinstall:
     - identity
   locale: en_US.UTF-8
   keyboard:
+    model: pc105
     layout: br
+    variant: ""
+    toggle: null
   timezone: "America/Sao_Paulo"
   storage:
     layout:
@@ -17,8 +20,6 @@ autoinstall:
 
   late-commands:
     - echo "==============Comecei os comandos============"
-    - curtin in-target -- localectl set-keymap br
-    - curtin in-target -- localectl set-x11-keymap br pc105 br
     - mkdir -p /mnt/pendrive
     - mount /dev/sdb1 /mnt/pendrive
     - cp /mnt/pendrive/posinstall3.sh /target/root/posinstall3.sh
