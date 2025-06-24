@@ -6,8 +6,7 @@ autoinstall:
     - identity
   locale: en_US.UTF-8
   keyboard:
-    model: pc105
-    layout: br
+    layout: "br"
     variant: ""
     toggle: null
   timezone: "America/Sao_Paulo"
